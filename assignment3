@@ -1,0 +1,40 @@
+import java.util.Scanner; 
+
+public class new2 {
+    public void numberToword(int n, String ch) {
+        String one[] = {" ", " one", " two", " three", " four", " five", " six", " seven", " eight", " Nine", " ten", " eleven", " twelve", " thirteen", " fourteen", "fifteen", " sixteen", " seventeen", " eighteen", " nineteen"
+        };
+        String ten[] = {" ", " ", " twenty", " thirty", " forty", " fifty", " sixty", "seventy", " eighty", " ninety"};
+        if (n > 19) {
+            System.out.print(ten[n / 10] + " " + one[n % 10]);
+        } else {
+            System.out.print(one[n]);
+        }
+        if (n > 0) {
+            System.out.print(ch+"");
+        }
+    }
+    public static void main(String[] args) {
+        String input = "";
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter an integer number: ");
+        input = s.nextLine();
+        if(input.length()>3)
+        {
+            System.out.print("Number should be three digit number or less than that");
+            
+        } else {
+        	int n=Integer.parseInt(input, 10);
+        	new2 a = new new2();
+            System.out.print("After conversion number in words is :");
+            
+           if((n %100)==0)
+        	   a.numberToword(((n / 100) % 10), " hundred");
+           else
+           {
+            a.numberToword(((n / 100) % 10), " hundred and");
+            
+            a.numberToword((n % 100), " ");
+        }}
+    }
+}
